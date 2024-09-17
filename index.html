@@ -284,18 +284,17 @@ src="https://www.facebook.com/tr?id=1920829908329678&ev=PageView&noscript=1"
        <!-- Menu Container 1 Codes Start -->
     <section id="main_section_container_1" class="flex_column_center">
         <div class="container">
-            <form id="wppform" action="#">
-                <div class="form-entry">
-                    <label for="user">Escribinos tu nombre<span>*</span>: </label><br>
-                    <input type="text" name="user" id="user" placeholder="Nombre" required>
-                </div>
-               
-                <div class="button">
-                    <button type="submit" class="main_button_item">CREA TU USUARIO ➤</button>
-                </div>
-
-                <h1 class="header_disclaimer">* Carga mínima: $1.000, Atención las 24hs *</h1>
-            </form>
+            <form id="wppform" onsubmit="redirectToWhatsApp(event)">
+				<div class="form-entry">
+					<label for="user">Escribinos tu nombre<span>*</span>: </label><br>
+					<input type="text" name="user" id="user" placeholder="Nombre" required>
+				</div>
+			
+				<div class="button">
+					<button type="submit" class="main_button_item">CREA TU USUARIO ➤</button>
+				</div>
+			</form>
+			
         </div>
     </section>
       
@@ -319,7 +318,21 @@ src="https://www.facebook.com/tr?id=1920829908329678&ev=PageView&noscript=1"
 				<p>Aceptamos transferencias de <br>cualquier Banco/MercadoPago.</p>
 			</div>
 	 </div>
-	
+	 <script>
+		function redirectToWhatsApp(event) {
+			event.preventDefault(); // Evitar que el formulario recargue la página
+		
+			// Obtener el nombre ingresado por el usuario
+			var userName = document.getElementById('user').value;
+		
+			// Crear el enlace de WhatsApp
+			var whatsappURL = "https://wa.me/5491161957920?text=Hola, mi nombre es " + encodeURIComponent(userName) + " y quiero crear mi usuario.";
+		
+			// Redirigir a WhatsApp
+			window.location.href = whatsappURL;
+		}
+		</script>
+		
 	 
 	 <div class="containerAviso">	
 		<p>Jugar compulsivamente es perjudicial para la salud. <br> </p>
